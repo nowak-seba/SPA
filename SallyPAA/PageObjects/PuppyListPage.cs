@@ -22,9 +22,6 @@ namespace SallyPAA.PageObjects
             PageFactory.InitElements(driver, this);
         }
         
-        [FindsBy(How = How.CssSelector, Using = "div.puppy_list:nth-child(3) > div:nth-child(1) > div:nth-child(2) > h3:nth-child(1)")]
-        private IWebElement _puppyName { get; set; }
-
         [FindsBy(How = How.CssSelector, Using = "div.puppy_list > div:nth-child(1) > div:nth-child(2) > h3:nth-child(1)")]
         private IList<IWebElement> _puppyNames { get; set; }
 
@@ -50,55 +47,6 @@ namespace SallyPAA.PageObjects
         public void GoToPage()
         {
             _driver.Navigate().GoToUrl(_testUrl);
-        }
-
-        public void PuppyAllNames1()
-        {
-            IList<IWebElement> all = _driver.FindElements(By.CssSelector("div.puppy_list > div:nth-child(1) > div:nth-child(2) > h3:nth-child(1)"));
-
-            var names = new List<string>();
-            foreach (var element in all)
-            {
-                Console.WriteLine(element.Text);
-                names.Add(element.Text);
-            }
-
-            foreach (var element in _puppyNames)
-            {
-                Console.WriteLine($" Puppy Names: {element.Text}  {element.Displayed}");
-
-            }
-        }
-
-        public void PuppyAllNames2()
-        {
-            IList<IWebElement> all = _driver.FindElements(By.CssSelector("div.puppy_list > div:nth-child(1) > div:nth-child(2) > h3:nth-child(1)"));
-
-            var names = new List<string>();
-
-            foreach (var element in all)
-            {
-                Console.WriteLine(element.Text);
-                names.Add(element.Text);
-            }
-            
-            var nextButtonClassName = _driver.FindElement(By.CssSelector(".next_page")).GetAttribute("class");
-            Console.WriteLine($"nextButtonClassName: {nextButtonClassName}");
-            while (!nextButtonClassName.Contains("disabled"))
-            {
-                _driver.FindElement(By.CssSelector(".next_page")).Click();
-                all = _driver.FindElements(By.CssSelector("div.puppy_list > div:nth-child(1) > div:nth-child(2) > h3:nth-child(1)"));
-
-                foreach (var element in all)
-                {
-                    Console.WriteLine(element.Text);
-                    names.Add(element.Text);
-                }
-                nextButtonClassName = _driver.FindElement(By.CssSelector(".next_page")).GetAttribute("class");
-            }
-
-            Console.WriteLine(names);
-            Console.WriteLine(names.Count);
         }
 
         private IEnumerable<string> PuppyAllNames()

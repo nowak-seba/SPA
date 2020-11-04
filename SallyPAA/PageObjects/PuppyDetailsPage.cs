@@ -42,7 +42,5 @@ namespace SallyPAA.PageObjects
 
             return new PuppyAdoptPage(_driver);
         }
-
-
     }
 }

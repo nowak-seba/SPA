@@ -50,8 +50,6 @@ namespace SallyPAA.TestCases
             var order = new OrderPage(_driver);
             order.PlaceOrder("Check");
 
-            Thread.Sleep(10000);
-
             // Assertion goes here
         }
 
@@ -78,8 +76,6 @@ namespace SallyPAA.TestCases
 
             var order = new OrderPage(_driver);
             order.PlaceOrder("Credit card");
-
-            Thread.Sleep(10000);
 
             // Assertion goes here
         }

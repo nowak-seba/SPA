@@ -8,7 +8,7 @@ namespace SallyPAA.PageObjects
     public class PuppyAdoptPage
     {
         private readonly IWebDriver _driver;
-        int _timeout = 10000; // in milliseconds
+        readonly int _timeout = 10000; // in milliseconds
 
         public PuppyAdoptPage(IWebDriver driver)
         {
