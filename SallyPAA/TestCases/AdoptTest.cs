@@ -31,17 +31,14 @@ namespace SallyPAA.TestCases
         {
             var puppyList = new PuppyListPage(_driver);
             puppyList.GoToPage();
-            Console.WriteLine(_driver.Url);
 
             var puppy = puppyList.GetPuppyByName("Brook");
             puppyList.GoToPuppyDetails(puppy);
 
             var puppyDetails = new PuppyDetailsPage(_driver);
-            Console.WriteLine(_driver.Url);
             puppyDetails.Adopt();
 
             var puppyAdopt = new PuppyAdoptPage(_driver);
-            Console.WriteLine(_driver.Url);
             puppyAdopt.AddChewToy();
             puppyAdopt.AddTravelCarrier();
             Console.WriteLine($"Total amount: {puppyAdopt.TotalValue}");
@@ -59,17 +56,14 @@ namespace SallyPAA.TestCases
         {
             var puppyList = new PuppyListPage(_driver);
             puppyList.GoToPage();
-            Console.WriteLine(_driver.Url);
 
             var puppy = puppyList.GetPuppyByName("Sparky");
             puppyList.GoToPuppyDetails(puppy);
 
             var puppyDetails = new PuppyDetailsPage(_driver);
-            Console.WriteLine(_driver.Url);
             puppyDetails.Adopt();
 
             var puppyAdopt = new PuppyAdoptPage(_driver);
-            Console.WriteLine(_driver.Url);
             puppyAdopt.AddCollarAndLeash();
             Console.WriteLine($"Total amount: {puppyAdopt.TotalValue}");
             puppyAdopt.Order();
